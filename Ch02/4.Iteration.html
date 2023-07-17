@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.iteration</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h3>4.Iteration</h3>
+    <script>
+        for(let i=1; i<=5; i++){
+            document.write('i = '+ i +'<br>');
+        }
+        let sum = 0;
+        for(let i=1; i<=10; i++){
+            sum += i;
+        }
+        document.write('sum = ' + sum + '<br>');
+
+        let evensum = 0;
+        for(let i=0; i<=10; i++){
+            if(i % 2 == 0){
+            evensum += i;
+            }
+        }
+        document.write('evensum = ' + evensum);
+        
+        for(let i = 0; i<10; i++){
+            for(let j=1; j<=i; j++){
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    </script>
+    <h4></h4>
+    <script>
+        let total = 0;
+        let k = 1;
+
+        while(k<=10){
+            if(k % 2 == 0){
+                total += k;
+            }
+            k++;
+        }
+        document.write('total = ' + total + '<br>');
+
+        let tot = 0;
+        let j = 1;
+
+        do{
+            if(j % 2 == 1){
+                tot +=j;
+            }
+            j++
+        }while(j<=10)
+
+        document.write('tot = ' + tot + '<br>');
+
+        let num = 1;
+        while(true){
+            if(num % 5 == 0 && num % 7 == 0){
+                break;
+
+            }
+            num++;
+        }
+        document.write('5 and 7 SmallestCommonMultiple = ' + num + '<br>');
+
+        let number = 0;
+        for(let i=1; i<=10; i++){
+            if(i % 2 == 1){
+                continue;
+            }
+            number += i;
+        }
+        document.write('1 ~ 10 evensum = ' + number + '<br>');
+    </script>
+    <h4></h4>
+    <script>
+        document.write('<table border=1>');
+        document.write('<tr>');
+        for(let c = 2; c<=9; c++){
+            document.write('<th>' + c +'단' + '</th>');
+
+        }
+        document.write('</tr>');
+        for(let a = 1; a<10; a++){
+            document.write('<tr>');
+            for(let b = 2; b<10; b++){
+                
+                document.write('<td>' +b + 'x' + a + '=' + a*b + '</td>');
+                
+
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+    </script>
+</body>
+</html>
