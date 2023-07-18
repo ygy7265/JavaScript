@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.JSON</title>
+</head>
+<body>
+    <h3>2.JSON</h3>
+    <script>
+        const user = {
+            "uid":"a101",
+            "name":"yousin",
+            "hp":"010-1111-1234",
+            "age":25
+        };
+
+        document.write('user = ' + user + '<br>');
+        document.write('user = ' + JSON.stringify(user) + '<br>');
+        document.write('uid =' + user.uid + '<br>')
+        document.write('name =' + user.name + '<br>')
+        document.write('hp =' + user.hp + '<br>')
+        document.write('age =' + user.age + '<br>')             
+
+        for(let k in user){
+            document.write(k + ' : ' + user[k] + '<br>');
+        }
+
+        const jsonData = {
+            "users" : [
+                        {"uid":"a101","name":"yousin2","hp":"010-1234-1225","age":"30"},
+                        {"uid":"a102","name":"yousin3","hp":"010-1234-1224","age":"31"},
+                        {"uid":"a103","name":"yousin4","hp":"010-1234-1223","age":"32"},
+                        {"uid":"a104","name":"yousin5","hp":"010-1234-1222","age":"33"},
+                        {"uid":"a105","name":"yousin6","hp":"010-1234-1221","age":"34"},
+            ]                                                                                            
+        };
+        for(let user of jsonData.users){
+            document.write('<p>');
+            document.write('uid = ' + user.uid + '<br>');
+            document.write('name = ' + user.name + '<br>');
+            document.write('hp = ' + user.hp + '<br>');
+            document.write('aeg = ' + user.age + '<br>');
+
+            document.write('</p>');
+        }
+        const user1 = {"name":"bogo","age":"32","addr":"busan"};
+        document.write('user1 = ' + user1 + '<br>');
+        
+        let strUser1 = JSON.stringify(user1);//Json객체를 문자열로 반환
+        document.write('strUser1 = ' + strUser1 + '<br>');
+
+        let strUser2 = JSON.parse(strUser1); //Json문자열을 객체로 변환
+        document.write('strUser2 = ' + strUser2 + '<br>');
+    </script>
+        
+</body>
+</html>

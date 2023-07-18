@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Object</title>
+    <script src="./js/Account.js"></script>
+</head>
+<body>
+    <h3>1.Object</h3>
+    <script>
+        const sonata = {
+            name: 'sonata',
+            color: 'white',
+            speed: 0,
+            speedUp: function(speed){
+                this.speed += speed;
+            },
+            speedDown: function(speed){
+                this.speed -= speed;
+            },
+            show: function(){
+            document.write('car name =' + this.name + '<br>');
+                document.write('car color =' + this.color + '<br>');
+                document.write('car speed =' + this.speed + '<br>');
+            }
+        };
+        sonata.speedUp(80);
+        sonata.speedDown(20);
+        sonata.show();
+
+        const kb = new Account('kbBank','101-111-1234','yousin', 1000);
+        kb.deposit(3000);
+        
+        kb.show();
+    </script>
+     
+</body>
+</html>
