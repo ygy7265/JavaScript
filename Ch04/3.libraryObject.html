@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.libraryObject</title>
+</head>
+<body>
+    <h4>Array</h4>
+    <script>
+        const arr1 = [1,2,3,4,5];
+        const arr2 = new Array(6,7,8,9,10);
+
+        document.write('arr1 = ' + arr1 + '<br>');
+        document.write('arr2 = ' + arr2 + '<br>');
+
+        arr1.push(7);
+        arr1.push(8);
+        arr1.push(9);
+        document.write('arr1 = ' + arr1 + '<br>');
+        //배열연결
+        const arr3 = arr1.concat(arr2)
+        document.write('arr = ' + arr3 + '<br>');
+
+        //배열원소문자열생성
+        const result = arr3.join('-');
+        document.write('result = ' + result + '<br>');
+        arr3.forEach(function(item,index){
+            document.write('index = ' + index + ', item = ' + item + '<br>' );
+        });
+        //
+        arr3.forEach((item,index) => {
+            document.write('index = ' + index + ', item = ' + item + '<br>' );
+        });
+        //배열원소가공
+        const arr5 = arr3.map(item => item * 2);
+
+        const arr4 = arr3.map((item) => {return item + 10;});
+        const arr6 = arr3.filter(item => item % 2  == 0)
+        const arr7 = arr3.map(item => item * 2).filter(item => item > 10);
+        document.write('arr4 = ' + arr4 + '<br>');
+        document.write('arr5 = ' + arr5 + '<br>');
+        document.write('arr6 = ' + arr6 + '<br>');
+        document.write('arr7 = ' + arr7 + '<br>');
+        //배열구조분해할당
+        const[spring,summer,fall,winter] = ['spring', 'summer', 'fall' , 'winter'];        
+        document.write('spring = ' + spring + '<br>');
+        document.write('summer = ' + summer + '<br>');
+        document.write('fall = ' + fall + '<br>');
+        document.write('winter = ' + winter + '<br>');
+
+
+        const [leader, ...others] = ['yousin' ,"huynchu",'bogo','sunsin'];
+        document.write('leader = ' + leader + '<br>');
+        document.write('others = ' + others + '<br>');
+
+    </script>
+
+    <h4>String</h4>
+    <script>
+        const str1 = 'HelloKorea';
+        const str2 = new String('HelloKorea');
+        const str3 = 'a b c def ';
+        const str4 ='a,b,c,d,e';
+
+        let r1 = str1.length;
+        let r2 = str1.charAt(4);
+        let r3 = str1.indexOf('e');
+        let r4 = str1.lastIndexOf('e');
+        let r5 = str2.replace('Korea', 'Busan');
+        let r6 = str2.substring(0,5);
+        let r7 = str2.substr(0,5);
+        let r8 = str3.trim();
+        let r9 = str4.split(',');
+
+        document.write('r1 = ' + r1 + '<br>');
+        document.write('r2 = ' + r2 + '<br>');
+        document.write('r3 = ' + r3 + '<br>');
+        document.write('r4 = ' + r4 + '<br>');
+        document.write('r5 = ' + r5 + '<br>');
+        document.write('r6 = ' + r6 + '<br>');
+        document.write('r7 = ' + r7 + '<br>');
+        document.write('r8 = ' + r8 + '<br>');
+        document.write('r9 = ' + r9 + '<br>');
+    </script>
+
+    <h4>Math</h4>
+    <script>
+        let a1 = Math.abs(-5);
+        let a2 = Math.sqrt(9);
+        let a3 = Math.ceil(1.2);
+        let a4 = Math.ceil(1.8);
+        let a5 = Math.floor(1.2);
+        let a6 = Math.floor(-1.2);
+        let a7 = Math.round(1.2);
+        let a8 = Math.round(1.8);
+
+        document.write('rs1 =' + a1 + '<br>');
+        document.write('rs2 =' + a2 + '<br>');
+        document.write('rs3 =' + a3 + '<br>');
+        document.write('rs4 =' + a4 + '<br>');
+        document.write('rs5 =' + a5 + '<br>');
+        document.write('rs6 =' + a6 + '<br>');
+        document.write('rs7 =' + a7 + '<br>');
+        document.write('rs8 =' + a8 + '<br>');
+
+        let n1 = Math.random();
+        let n2 = n1 * 10;
+        let n3 = Math.ceil(n2);
+        let n4 = Math.ceil(Math.random() * 10);
+        
+        document.write('n1 = ' + n1 + '<br>');
+        document.write('n2 = ' + n2 + '<br>');
+        document.write('n3 = ' + n3 + '<br>');
+        document.write('n4 = ' + n4 + '<br>');
+    </script>
+    <h4>Date</h4>
+    <script>
+        const date = new Date();
+        document.write('data = ' + date + '<br>');
+
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day =  date.getDate();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        document.write(`${year}년 ${month}월 ${day}일 ${hour}:${min}:${sec}`);
+    </script>
+</body>
+</html>
