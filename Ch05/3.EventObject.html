@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.EventObject</title>
+    <style>
+        #container{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        
+        window.onload = function(){
+            const container = document.getElementById('container');
+            const span = document.getElementsByTagName('span');
+
+            container.addEventListener('mousemove',function(e){
+                span[0].innerText = e.clientX;
+                span[1].innerText = e.clientY;
+                span[2].innerText = e.pageX;
+                span[3].innerText = e.pageY;
+                span[4].innerText = e.screenX;
+                span[5].innerText = e.screenY;
+                span[6].innerText = e.target;
+                span[7].innerText = e.timeStamp;
+            });
+
+
+            //cancel
+
+            const aNode = document.getElementsByTagName('a');
+            aNode[0].addEventListener('click', (e)=>{
+                    e.preventDefault();
+                    alert('naver click');
+
+            }); 
+            aNode[1].onclick = function(e) {
+                e.preventDefault();
+                alert('daum click');
+            };
+            
+        };
+    </script>
+</head>
+<body>
+    <h3>3.EventObject</h3>
+    <div id="container"></div>
+        <p>
+            clienX : <span>0</span><br>
+            clienY : <span>0</span><br>
+            pageX : <span>0</span><br>
+            pageY : <span>0</span><br>
+            screenX : <span>0</span><br>
+            screenY : <span>0</span><br>
+            target: <span>0</span><br>
+            timeStamp : <span>0</span><br>
+            
+        </p>
+        <h4>basic Event cancel</h4>
+        <a href="https://naver.com">Naver</a>
+        <a href="https://daum.net">Daum</a>
+
+        <form action="https://google.com">
+            <input type="text" name="value">
+            <input type="submit" value="전송">
+        </form>
+    
+</body>
+</html>
