@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.AJAX</title>
+</head>
+<script>
+    window.onload = function(){
+
+    }
+</script>
+<body>
+    <h3>3.AJAX</h3>
+    <button id="btnData">DATA request </button>
+
+    <p>
+        id = <span></span><br>
+        name = <span></span><br>
+        hp = <span></span><br>
+        age = <span></span><br>
+    </p>
+
+    <a href="https://naver.com" id="btnUsers">User data request</a>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>hp</th>
+            <th>age</th>
+        </tr>
+      
+    </table>
+    <script>
+        const btn1 = document.getElementById('btnData');
+
+        btn1.addEventListener('click',function(){
+            //ajax데이터요청
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET','http://chhak.click/data/user.json');
+            xhr.send();
+
+            //응답처리
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == XMLHttpRequest.DONE){
+                    if(xhr.status == 200){
+                        const data = JSON.parse(xhr.response);
+                        console.log('data = '  + data);
+                        const span = document.getElementsByTagName('span');
+
+                        span[0].innerText = data.uid;
+                        span[1].innerText = data.name;
+                        span[2].innerText = data.hp;
+                        span[3].innerText = data.age;
+                    }
+                }else{
+                        console.log('response fail..');
+                }
+            }
+        });
+
+        const btn2 = document.getElementById('btnUsers');
+        btn2.addEventListener('click',function(e){
+            e.preventDefault();
+            fetch('http://chhak.click/data/users.json')
+            .then((response)=>response.json())
+            .then((data)=>{
+                const table = document.querySelector('table');
+                for(let user of data.users){
+                    
+                    
+                    const tr = document.createElement('tr');
+                    const td1 = document.createElement('td');
+                    const td2 = document.createElement('td');
+                    const td3 = document.createElement('td');
+                    const td4 = document.createElement('td');
+
+                    td1.innerText = user.uid;
+                    td2.innerText = user.name;
+                    td3.innerText = user.hp;
+                    td4.innerText = user.age;
+                    
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    table.appendChild(tr);
+                }
+                
+
+             })
+            .catch(()=>{console.log('reponse fail..')})
+        });
+
+
+    </script>
+</body>
+</html>
