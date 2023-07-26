@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        Date : 2023/07/26
+        name : yoongyoungyeop
+        content : jQuery 
+     -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.jQuery Intro</title>
+    <script src="./js/jquery-3.7.0.min.js">
+        
+    </script>
+
+    <script>
+        //javascript
+        window.onload = function() {
+            const city = document.getElementById('city');
+            const li = city.getElementsByTagName('li');
+            li[0].style.color = 'red';
+       }
+
+       //jquery
+       $(document).ready(function(){
+        $('#city > li:last-child').css('color','green');
+       });
+    </script>
+</head>
+<body>
+    <h3>1.jQuery intro</h3>
+
+    <ul id="city">
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+</body>
+</html>
