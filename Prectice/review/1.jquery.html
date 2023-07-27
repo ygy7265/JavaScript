@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.jqueryriview</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        .box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            
+        }
+        .red{background: red;}
+        .green{background: green;}
+        .blue{background: blue;}
+    </style>
+
+    <script>
+        $(function(){
+
+        })
+    $(function(){    
+        $('.box1').click(function(){
+            $(this).css('background-color','red');
+        })
+
+        $('.box2').addClass('red');
+        $('.box2').removeClass('red');
+        $('.box3').toggleClass('green');
+        $('.box2').text("<li>text1</li>");
+        $('.box3').html("<li>text1</li>");
+        $('.box3').css('color','white');
+        $('.box4').mouseup(function(){
+        $(this).css('background','black');
+    })
+
+    $('.container').append('<div class="box">box6</div>');
+    $('.container').prepend('<div class="box">box0</div>');
+    $('.box1').appendTo('.container');
+    })
+
+    $(window).resize(function(){
+        let a = $(this).width();
+        let b = $(this).height();
+        $('span:eq(0)').text(a);
+        $('span:eq(1)').text(b);
+    })
+    $(window).mousemove(function(e){
+        $('span:eq(2)').text(e.clientX);
+        $('span:eq(3)').text(e.clientY);
+    })
+
+   
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+    </div>
+    <p>
+        width = <span>0</span><br>
+        height= <span>0</span>
+    </p>
+    <p>
+        mousewidth = <span>0</span><br>
+        mouseheight= <span>0</span>
+    </p>
+</body>
+</html>
