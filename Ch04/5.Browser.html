@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.BrowserObject</title>
+</head>
+<body>
+    <h3>5.BrowserObject</h3>
+    <h4>window</h4>
+    <script>
+        console.log(window);
+        
+
+        //브라우저 크기 따오기
+        window.document.write('inneerWidth = ' + window.innerWidth + '<br>');
+        window.document.write('inneerHeight = ' + window.innerHeight + '<br>');
+
+
+        //새로운 브라우저 오픈
+        //window.open('https://naver.com', 'Object', 'width=600 height = 500');
+
+        //브라우저 저장소
+        window.localStorage.setItem('name','kimyousin');
+        window.sessionStorage.setItem('name','kimyousin');        
+    </script>
+
+    <h4>screen</h4>
+    <script>
+        document.write('화면 너비 :' + screen.width + '<br>');
+        document.write('화면 높이 :' + screen.height + '<br>');
+        document.write('화면 너비(작업표시줄제외) :' + screen.availWidth + '<br>');
+        document.write('화면 높이(작업표시줄제외) :' + screen.availHeight + '<br>');
+    </script>
+
+    <!--BrowserInfomation-->
+    <h4>navigator</h4>
+    <script>
+        console.log(navigator);
+
+        document.write('Browser codename = ' + navigator.appCodeName + '<br>');
+        document.write('Browser appname = ' + navigator.appName + '<br>');
+        document.write('Browser appversion = ' + navigator.appVersion + '<br>');
+        document.write('Browser platform = ' + navigator.platform + '<br>');
+        document.write('Browser userAgent = ' + navigator.userAgent + '<br>');
+    </script>
+
+    <h4>location</h4>
+    <button onclick="f1()">reload</button>
+    <button onclick="f2()">naver Move</button>
+    <button onclick="f3()">kakao Move</button>
+    <script>
+        console.log(location);
+        const f1 = () => location.reload();
+        //주소히스토리기록
+        const f2 = () => location.href = 'https://naver.com';
+        //주소히스토리기록 안됌
+        const f3 = () => location.replace('https://kakao.com');
+    </script>
+
+    <h4>history</h4>
+    <button onclick="back()">back</button>
+    <button onclick="forward()">forward</button>
+    <script>
+        console.log(history);
+        document.write('history length = ' + history.length + '<br>');
+
+        const back = () => history.back();
+        const forward = () => history.forward();
+
+    </script>
+</body>
+</html>

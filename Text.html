@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+        }
+        .box1{
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            
+        }
+
+    </style>
+
+        <script>
+            const box1 = document.getElementsByClassName('box1');
+            const box2 = document.getElementsByClassName('box2');
+            const box3 = document.getElementsByClassName('box3');
+            window.onload = function(){
+            box1[0].addEventListener('click', function(){
+                box2[0].style.background = 'blue';
+            });
+            box2[0].addEventListener('mouseover', function(){
+                box2[0].style.background = 'white';
+            })
+
+        };
+        </script>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            <a href="https://naver.com">naver</a>
+            <div class="box3">
+                <button>bth1</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

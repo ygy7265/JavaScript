@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+     <!-- 
+        Date : 2023/07/27
+        name : Yoongyeongyeop
+        content : jQuery control function
+     -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.jQueryControl function</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            display: inline-block;
+        }
+        .red {background-color: red;}
+        .blue {background-color: blue;}
+        .green {background-color: green;}
+    </style>
+    <script>
+        $(function(){
+
+            //attr()
+            $('img').eq(0).attr('src','./images/flower1.jpg').attr('alt','flower1');
+            //json
+            $('img').eq(1).attr({
+                'src':'./images/flower2.jpg',
+                'alt':'flower2'});
+
+             //css()
+            $('.box1')
+                .css('width','100px')
+                .css('height','100px')
+                .css('border','1px solid black')
+                .css('background-color','orange');
+
+            $('.box2').css({
+                'width':'100px',
+                'height':'100px',
+                'border':'1px solid black',
+                'background-color':'green'
+            });
+
+            //text(),html()
+            const r1 = $('#city').text();
+            const r2 = $('#city').html();
+
+            $('p:eq(0)').text(r1);
+            $('p:eq(1)').text(r2);
+            $('p:eq(2)').html(r1);
+            $('p:eq(3)').html(r2);
+            
+            //add/move function
+            const city = $('.city');
+            city.append('<li><em>제주도</li>');
+            city.prepend('<li><em>서울특별시</li>');
+
+            city.find('.gs > li:eq(1)').appendTo('.city > li:eq(1) > ol');
+            city.find('.gs > li:eq(1)').appendTo('.city > li:eq(5) > ol');
+            city.find('.gs > li:eq(1)').appendTo('.city > li:eq(3) > ol');
+            city.find('.gs > li:eq(1)').appendTo('.city > li:eq(3) > ol');
+            city.find('.gs > li:eq(1)').appendTo('.city > li:eq(1) > ol');
+                
+            //class function
+            $('.box').eq(0).addClass('red');
+            $('.box').eq(1).removeClass('green');
+            $('.box').eq(2).toggleClass('blue');
+        });
+            
+          
+            
+    </script>
+</head>
+<body>
+        <h3>2.jquery Controlfunction</h3>
+
+        <h4>attr function</h4>
+        <img src="" alt="">
+        <img src="" alt="">
+
+        <h4>css function</h4>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+         
+        <h4>text/html function</h4>
+        <ul id="city">
+            <li>서울</li>
+            <li>대전</li>
+            <li>대구</li>
+            <li>부산</li>
+            <li>광주</li>
+        </ul>
+
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <h4>add/move function</h4>
+        <ul class="city">
+            <li><em>경기도</em><ol></ol></li>
+            <li><em>충청도</em><ol></ol></li>
+            <li><em>강원도</em><ol></ol></li>
+            <li><em>경상도</em><ol class="gs">
+                  <li>창원</li>  
+                  <li>수원</li>  
+                  <li>목포</li>  
+                  <li>부여</li>  
+                  <li>원주</li>  
+                  <li>파주</li>  
+            </ol></li>
+            <li><em>전라도</em><ol></ol></li>
+        </ul>
+        <h4>class function</h4>
+        
+        <div class="box">box1</div>
+        <div class="box green">box2</div>
+        <div class="box">box3</div>
+        
+</body>
+</html>

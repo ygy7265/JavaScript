@@ -1,29 +1,23 @@
-window.onload = function () {
-    const todoList = document.getElementById('todoList');
-    const inputTodo = document.getElementById('inPutodo');
-    const btnAdd = document.getElementById('btnAdd');
+const parallax_el = document.querySelectorAll(".parallax");
 
-    btnAdd.addEventListener('click', function(e) {
-        let todoValue = inputTodo.value;
-        if (todoValue == '') {
-            alert("할일을 입력하세요");
-            return;
-        }
-        const listItem = document.createElement('li');
-        listItem.className = 'd-flex list-group-item';
-        listItem.innerText = todoValue;
+let xValue = 0, yValue = 0;
 
-        const listBtn = document.createElement('button');
-        listBtn.className = 'btn-close ms-auto';
-        listBtn.onclick = function(e) {
-            let pNode = e.target.parentNode;
-            pNode.remove();
-        };
-        listItem.appendChild(listBtn);
+window.addEventListener("mousemove", (e) => {
+    xValue = e.clientX - window.innerWidth / 2;
+    yValue = e.clientY - window.innerHeight / 2;
 
-        todoList.appendChild(listItem);
+    parallax_el.forEach((el) => {
+        let speedx = el.dataset.speedx;
+        let speedy = el.dataset.speedy;
+        let speedz = el.dataset.speedz;
 
-        inputTodo.value = '';
+        let isInLeft = parseFloat(getComputedStyle(el).left) < window.innerWidth / 2 ? 1 : -1;
+        let zValue = (e.clientX - parseFloat(getComputedStyle(el).left)) * isInLeft * 0.1;
+        console.log(zValue);
+        el.style.transform = 
+        `translateX(calc(-50% + ${-xValue * speedx}px)) 
+         translateY(calc(-50% + ${yValue * speedy}px)) 
+         perspective(2300px) 
+         translateZ(${zValue * speedz}px)`;
     });
-};
-
+});

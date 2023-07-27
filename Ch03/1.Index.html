@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.index</title>
+</head>
+<body>
+    <h3>1.Index</h3>
+    <script>
+        //1.Index Create
+        let arr = [1,2,3,4,5];
+        for(let i =0; i < arr.length; i++){
+            document.write("<p>" + arr[i]  + "</p>");
+        }
+        document.write("<p>----------------------------------------</p>");
+        //2.배열 인덱스 참조반복문
+        for(let idx in arr){
+            document.write("<p>" + arr[idx]  + "</p>");
+        }
+        //2-1 배열 원소 참조
+        document.write("<p>----------------------------------------</p>");
+        for(let num of arr){         
+            document.write("<p>" + num + "</p>");
+        }
+        const arr2d = [[1,2,3],[4,5,6],[7,8,9]];
+
+        document.write('arr2d[0][0] = ' + arr2d[0][0] + '<br>');
+        document.write('arr2d[1][1] = ' + arr2d[1][1] + '<br>');
+        document.write('arr2d[2][1] = ' + arr2d[2][1] + '<br>');
+
+        const arr3d = [[[1,2,3],[4,5,6],[7,8,9]],[[10,11,12],[13,14,15],[16,17,18]],[[19,20,21],[22,23,24],[25,26,27]]];
+
+        document.write(arr3d[0][0][2] + '<br>');
+        document.write(arr3d[0][2][0] + '<br>');
+        document.write(arr3d[1][0][1] + '<br>');
+        document.write(arr3d[1][2][2] + '<br>');
+        document.write(arr3d[2][1][0] + '<br>');
+        document.write(arr3d[2][2][0] + '<br>');
+    </script>
+</body>
+</html>
